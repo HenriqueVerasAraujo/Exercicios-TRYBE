@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Exercício 5.1</title>
-    <link rel="stylesheet" href="style.css">
     
-    
+    <style>
+      main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <header> 
@@ -19,8 +41,7 @@
         <p>Trybe</p>
       </section>
     </main>
-    <script src="script.js">
-      
+    <script>
         /*
         Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
         - document.getElementById()
@@ -33,6 +54,40 @@
  Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
  Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
+//exercicio 1//
+    const exercicio1 = document.getElementsByTagName("p")[1];
+    exercicio1.textContent = "Formado e trabalhando";
+    
+//exercicio 2//
+    function exe2() {
+      const exercicio2 = document.querySelector(".main-content");
+      exercicio2.style.backgroundColor = "rgb(76,164,109)";
+    }
+    exe2();
+
+    //exercicio 3//
+    function exe3() {
+      const exercicio3 = document.querySelector(".main-content .center-content");
+      exercicio3.style.backgroundColor = "white";
+    }
+    exe3();
+
+    //exercicio 4//
+    const mudah1 = document.querySelector("h1");
+    mudah1.textContent = "Exercício 5.1 - JavaScript"
+
+    //exercicio 5//
+    const uppercase = document.querySelector("p");
+    uppercase.style.textTransform = "uppercase"
+
+    //exercicio 6//
+    function exe6() {
+      const exercicio6 = document.querySelectorAll("p");
+      for (let index in exercicio6) {
+        console.log(exercicio6[index].textContent);
+      }
+    }
+    exe6();
     </script>
   </body>
 </html>
