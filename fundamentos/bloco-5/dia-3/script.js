@@ -1,5 +1,6 @@
 //constants//
 const daysUl = document.getElementById("days");
+const buttonClass = document.querySelector('.buttons-container');
 //events//
 
 
@@ -38,5 +39,13 @@ function greatDays() {
     daysUl.appendChild(newLi);
   }
 }
-
 greatDays();
+
+//Função para criar o botão "Feriados"//
+function buttonGen() {
+  let newButton = document.createElement('button');
+  newButton.id = 'btn-holiday';
+  newButton.innerHTML = "Feriados";
+  buttonClass.appendChild(newButton);
+}
+buttonGen();
