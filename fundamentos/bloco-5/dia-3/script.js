@@ -1,7 +1,10 @@
 //constants//
 const daysUl = document.getElementById("days");
 const buttonClass = document.querySelector('.buttons-container');
+
+
 //events//
+
 
 
 //functions//
@@ -49,3 +52,27 @@ function buttonGen() {
   buttonClass.appendChild(newButton);
 }
 buttonGen();
+
+//Função para mudar a cor dos dias de classe "holiday" para verde ao 
+
+const buttonFeriado = document.getElementById('btn-holiday');
+buttonFeriado.addEventListener('click', greenDays);
+// [DÚVIDA] Por quê isso funciona?//
+// buttonFeriado.addEventListener('click', function() {greenDays()});
+
+//[Dúvida] Por quê a função vazia "()" é aplicada ao carregar a página?//
+function greenDays() {
+  let allFeriados = document.querySelectorAll('.holiday');
+  for (let index = 0; index < allFeriados.length; index += 1) {
+    if (allFeriados[index].style.backgroundColor === "green") {
+      allFeriados[index].removeAttribute('style');
+    }else{
+    allFeriados[index].style.backgroundColor = "green";
+    allFeriados[index].style.color = "white";
+    allFeriados[index].style.borderRadius = "6px";
+    }
+  }
+}
+
+//Função para criação do botão "Sexta-feira"
+
