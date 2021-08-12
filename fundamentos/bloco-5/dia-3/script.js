@@ -74,5 +74,46 @@ function greenDays() {
   }
 }
 
-//Função para criação do botão "Sexta-feira"
+//Função para criação do botão "Sexta-feira"//
 
+function buttonGenFriday() {
+  let newButton2 = document.createElement('button');
+  newButton2.id = 'btn-friday';
+  newButton2.innerHTML = 'Sexta-feira';
+  buttonClass.appendChild(newButton2);
+}
+buttonGenFriday()
+
+//Dando funcionalidade ao botão "Sexta-feira//
+const btnFriday = document.getElementById('btn-friday');
+btnFriday.addEventListener('click', buttonFriday);
+let fridayDays = [4, 11, 18, 25];
+function buttonFriday() {
+  let allFridays = document.querySelectorAll('.friday');
+  for (let index = 0; index < allFridays.length; index += 1) {
+    if(allFridays[index].innerHTML === "Sextou!"){
+      allFridays[index].innerHTML = fridayDays[index];
+    }else{
+      allFridays[index].innerHTML = "Sextou!";  
+    }
+  }
+}
+
+//Função de zoom nos numeros com mouseover//
+const allNumbers = document.getElementsByClassName('day');
+for (let index = 0; index < allNumbers.length; index += 1) {
+  allNumbers[index].addEventListener('mouseover', zoomInNumbers);
+  allNumbers[index].addEventListener('mouseout', zoomOutNumbers);
+}
+
+function zoomInNumbers(e) {
+  let numeroAtual = e.target;
+  numeroAtual.style.transform = 'scale(1.5)'
+  numeroAtual.style.transition = '0.5s'
+}
+function zoomOutNumbers(e) {
+  let numeroAtual = e.target;
+  numeroAtual.style.transform = 'scale(1.0)'
+  numeroAtual.style.transition = '0.5s'
+  
+}
