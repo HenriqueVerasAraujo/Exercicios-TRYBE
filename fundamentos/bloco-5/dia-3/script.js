@@ -124,7 +124,7 @@ function addTask(t, c) {
 
   listaDeTarefas.appendChild(createSpan);
   let createSub = document.createElement('div');
-  createSub.className = 'task'
+  createSub.className = 'task';
   createSub.style.backgroundColor = c;
   listaDeTarefas.appendChild(createSub);
   let createLineBreak = document.createElement('br');
@@ -135,5 +135,23 @@ let coresArrey = ['blue', 'red', 'green', 'yellow'];
 for(let index in tarefasArrey) {
   addTask(tarefasArrey[index], coresArrey[index]);
 }
+
+// Função para adicionar a classe 'task-selected' nas divs//
+const listaDeTarefas = document.querySelector('.my-tasks')
+// for (let index = 0; index < listaDeTarefas.length; index += 1) {
+listaDeTarefas.addEventListener('click', addClassTask);
+let selected = document.querySelectorAll('.taskSelected');
+function addClassTask (e) {
+  let alvo = e.target;
+  if(alvo.className === 'task') {
+    alvo.className = 'taskSelected'
+    selected.className = 'task'
+    selected = alvo
+  }else if (alvo.className === 'taskSelected') {
+    alvo.className = 'task'
+  }
+}
+
+
 
 
