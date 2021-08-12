@@ -99,21 +99,41 @@ function buttonFriday() {
   }
 }
 
-//Função de zoom nos numeros com mouseover//
+//Função de zoom in nos numeros com mouseover e zoom out com mouseout//
 const allNumbers = document.getElementsByClassName('day');
 for (let index = 0; index < allNumbers.length; index += 1) {
   allNumbers[index].addEventListener('mouseover', zoomInNumbers);
   allNumbers[index].addEventListener('mouseout', zoomOutNumbers);
 }
-
 function zoomInNumbers(e) {
   let numeroAtual = e.target;
-  numeroAtual.style.transform = 'scale(1.5)'
-  numeroAtual.style.transition = '0.5s'
+  numeroAtual.style.transform = 'scale(1.5)';
+  numeroAtual.style.transition = '0.5s';
 }
 function zoomOutNumbers(e) {
   let numeroAtual = e.target;
-  numeroAtual.style.transform = 'scale(1.0)'
-  numeroAtual.style.transition = '0.5s'
-  
+  numeroAtual.style.transform = 'scale(1.0)';
+  numeroAtual.style.transition = '0.5s';
 }
+
+//Função de adicionar tarefas à lista de tarefas e legendas//
+function addTask(t, c) {
+  const listaDeTarefas = document.querySelector('.my-tasks');
+  let createSpan = document.createElement('span');
+  createSpan.innerText = t;
+
+  listaDeTarefas.appendChild(createSpan);
+  let createSub = document.createElement('div');
+  createSub.className = 'task'
+  createSub.style.backgroundColor = c;
+  listaDeTarefas.appendChild(createSub);
+  let createLineBreak = document.createElement('br');
+  listaDeTarefas.appendChild(createLineBreak);
+}
+let tarefasArrey = ['Passar as roupas:', 'Tomar banho:', 'Escovar os dentes:','Estudar:'];
+let coresArrey = ['blue', 'red', 'green', 'yellow'];
+for(let index in tarefasArrey) {
+  addTask(tarefasArrey[index], coresArrey[index]);
+}
+
+
